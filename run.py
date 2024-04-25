@@ -125,7 +125,7 @@ def find_top_users():
 # Function to find accounts with more than a specified number of transactions in a specific month
 def find_accounts_with_transactions():
     start_date = input("Enter start date (YYYY-MM-DD): ")
-    transaction_limit = int(input("Enter the transaction limit: "))
+    transaction_limit = int(input("Enter the transaction minimum: "))
     c.execute('''SELECT u.FirstName, u.LastName, NumberOfTransactions
                  FROM (
                      SELECT a.CustomerID, COUNT(t.TransactionID) AS NumberOfTransactions,
@@ -231,9 +231,9 @@ while True:
     print("1. Create a new account")
     print("2. Delete an account")
     print("3. Add a deposit")
-    print("4. Find top users by total account balance")
-    print("5. Find accounts with the most transactions from a specific month")
-    print("6. Find users with above average account balances")
+    print("4. Find top users by total account balance (GROUP 1)")
+    print("5. Find top 10 users with the most transactions from a specific month (GROUP 2)")
+    print("6. Find users with above average account balances (GROUP 3)")
     print("7. Send money to all accounts in a branch")
     print("8. Remove an account from its branch")
     print("9. Transfer money between accounts")
